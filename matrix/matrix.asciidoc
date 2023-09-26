@@ -1,0 +1,153 @@
++*In[5]:*+
+[source, ipython3]
+----
+import numpy as np
+a=np.array([1,2,3])
+print("type:%s"%type(a))
+print("Shape of a:%s"%a.shape)
+print(a[0],a[1],a[2])
+a[0]=5
+print(a)
+b=np.array([[1,2,3],[4,5,6]])
+print("\nShape of b:",b.shape)
+print(b[0,0],b[0,1],b[1,0])
+a=np.zeros((2,2))
+print("All zeros matrix:\n%s"%a)
+b=np.ones((1,2))
+print("\nAll ones matrix:\n%s"%b)
+d=np.eye(2)
+print("\nIdentity matrix:\n%s"%d)
+e=np.random.random((2,2))
+print("\n Random matrix:\n%s"%e)
+print("Vectorized sum example\n")
+x=np.array([[1,2],[3,4]])
+print("x:\n%s"%x)
+print("Sum:%s"%np.sum(x))
+print("Sum axis=0:%s"%np.sum(x,axis=0))
+print("Sum axis=1:%s"%np.sum(x,axis=1))
+a=np.arange(10000)
+b=np.arange(10000)
+dp=np.dot(a,b)
+print("Dot product :%s\n"%dp)
+op=np.outer(a,b)
+print("\n Outer product:%s\n"%op)
+ep=np.multiply(a,b)
+print("\n Element wise product:%s\n"%ep)
+
+
+
+
+
+----
+
+
++*Out[5]:*+
+----
+type:<class 'numpy.ndarray'>
+Shape of a:3
+1 2 3
+[5 2 3]
+
+Shape of b: (2, 3)
+1 2 4
+All zeros matrix:
+[[0. 0.]
+ [0. 0.]]
+
+All ones matrix:
+[[1. 1.]]
+
+Identity matrix:
+[[1. 0.]
+ [0. 1.]]
+
+ Random matrix:
+[[0.44962956 0.27851638]
+ [0.04090988 0.27607614]]
+Vectorized sum example
+
+x:
+[[1 2]
+ [3 4]]
+Sum:10
+Sum axis=0:[4 6]
+Sum axis=1:[3 7]
+Dot product :-1724114088
+
+
+ Outer product:[[       0        0        0 ...        0        0        0]
+ [       0        1        2 ...     9997     9998     9999]
+ [       0        2        4 ...    19994    19996    19998]
+ ...
+ [       0     9997    19994 ... 99940009 99950006 99960003]
+ [       0     9998    19996 ... 99950006 99960004 99970002]
+ [       0     9999    19998 ... 99960003 99970002 99980001]]
+
+
+ Element wise product:[       0        1        4 ... 99940009 99960004 99980001]
+
+----
+
+
++*In[2]:*+
+[source, ipython3]
+----
+import numpy as np
+x=np.array([[1,2],[3,4]])
+print("Original x:\n%s"%x)
+print("\n Transpose of x:\n%s"%x.T)
+----
+
+
++*Out[2]:*+
+----
+Original x:
+[[1 2]
+ [3 4]]
+
+ Transpose of x:
+[[1 3]
+ [2 4]]
+----
+
+
++*In[3]:*+
+[source, ipython3]
+----
+from numpy import array
+from scipy.linalg import svd
+A=array([[2,3],[3,4],[5,6]])
+print("A:\n%s"%A)
+U,S,VT=svd(A)
+print("\nU:\n%s"%U)
+print("\nS:\n%s"%S)
+print("\nV^T:\n%s"%VT)
+----
+
+
++*Out[3]:*+
+----
+A:
+[[2 3]
+ [3 4]
+ [5 6]]
+
+U:
+[[-0.36147641 -0.7639506  -0.53452248]
+ [-0.50272998 -0.32311828  0.80178373]
+ [-0.78523714  0.55854638 -0.26726124]]
+
+S:
+[9.94275532 0.37631997]
+
+V^T:
+[[-0.61927788 -0.78517189]
+ [ 0.78517189 -0.61927788]]
+----
+
+
++*In[ ]:*+
+[source, ipython3]
+----
+
+----
